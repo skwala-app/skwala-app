@@ -408,6 +408,10 @@ public class MainActivity extends Activity {
             CookieManager.getInstance().flush();
             // the SK WALA page needs a moment to draw inside Apps Script
             if (loader.getVisibility() == View.VISIBLE) ui.postDelayed(() -> loader.setVisibility(View.GONE), 900);
+            // hide Google's grey "created by a Google Apps Script user" bar inside the app (tap ✕ does the same on the website)
+            hideScriptBar();
+            ui.postDelayed(MainActivity.this::hideScriptBar, 1500);
+            ui.postDelayed(MainActivity.this::hideScriptBar, 4000);
         }
 
         @Override
@@ -418,6 +422,16 @@ public class MainActivity extends Activity {
                 offline.setVisibility(View.VISIBLE);
             }
         }
+    }
+
+    private static final String HIDE_BAR_JS = "(function(){try{var els=document.querySelectorAll('body *');"
+            + "for(var i=0;i<els.length;i++){var e=els[i];if(e.tagName==='IFRAME')continue;"
+            + "var t=e.textContent||'';if(t.length<300&&/created by a Google Apps Script user/i.test(t)&&e.offsetHeight>0&&e.offsetHeight<120){"
+            + "var p=e;while(p.parentElement&&p.parentElement!==document.body&&p.parentElement.offsetHeight<120&&!p.parentElement.querySelector('iframe'))p=p.parentElement;"
+            + "p.style.display='none';}}}catch(x){}})();";
+
+    private void hideScriptBar() {
+        try { web.evaluateJavascript(HIDE_BAR_JS, null); } catch (Exception ignored) { }
     }
 
     private class SiteChrome extends WebChromeClient {
