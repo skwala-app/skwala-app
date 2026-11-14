@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sk_blue">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <WebView
+                android:id="@+id/web"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/bar"
+                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="top"
+                android:max="100"
+                android:progressTint="@color/sk_orange"
+                android:visibility="gone" />
+
+            <!-- first loading screen -->
+            <LinearLayout
+                android:id="@+id/loader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/app_name"
+                    android:textColor="@color/sk_blue"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/tagline"
+                    android:textColor="#C99A00"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+
+                <ProgressBar
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="26dp"
+                    android:indeterminateTint="@color/sk_orange" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/offline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/offline_title"
+                    android:textColor="@color/sk_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/offline_text"
+                    android:textColor="#5B6B7F"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/sk_orange"
+                    android:text="@string/retry"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <View
+            android:id="@+id/navline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E3E8EF"
+            android:visibility="gone" />
+
+        <!-- bottom menu (filled in MainActivity) -->
+        <LinearLayout
+            android:id="@+id/nav"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

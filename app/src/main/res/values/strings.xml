@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SK WALA</string>
+    <!-- YOUR SK WALA WEBSITE LINK: copy it from Apps Script → Deploy → Manage deployments → Web app URL -->
+    <string name="site_url" translatable="false">https://script.google.com/macros/s/AKfycbxyJAUQcJQt8_IDJKQA2UF9YFApqIg8Yz_0H-1g32r-OvXBgbVlQB4g-MP9A3QWIZx6/exec</string>
+    <!-- Privacy policy page on your Google Site (needed for Google Play) -->
+    <string name="privacy_url" translatable="false">https://sites.google.com/view/sk-wala/privacy-policy</string>
+    <!-- Contact email shown in "More → Contact" (leave empty to hide) -->
+    <string name="contact_email" translatable="false"></string>
+    <string name="tagline">Prepare Today. Lead Tomorrow.</string>
+    <string name="offline_title">No internet connection</string>
+    <string name="offline_text">Please switch on mobile data or Wi-Fi, then tap Try again.</string>
+    <string name="retry">Try again</string>
+    <string name="exit_title">Exit SK WALA?</string>
+    <string name="exit_text">If a test is running, leaving the app is recorded as a violation.</string>
+    <string name="exit_yes">Exit</string>
+    <string name="exit_no">Stay</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_results">Results</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_more">More</string>
+    <string name="loading">Loading SK WALA…</string>
+    <string name="channel_name">SK WALA updates</string>
+    <string name="channel_desc">New mock tests, announcements and messages from Shreenath Kulal</string>
+    <string name="share_text">Prepare for JEE Main and KCET with SK WALA mock tests by Shreenath Kulal – NTA-style CBT, instant results, rank and solutions. Download the app: https://play.google.com/store/apps/details?id=com.skwala.app</string>
+    <string name="about_text">SK WALA – JEE Main and KCET Mock Test Series by Shreenath Kulal.\n\n• NTA-style computer based tests\n• JEE Main PYQ and SK Full-Length Papers\n• KCET PYQ and SK KCET Full-Length Papers\n• Instant results, rank, analysis and step-by-step solutions\n• Announcements, messages and study files\n\nPrepare Today. Lead Tomorrow.</string>
+</resources>

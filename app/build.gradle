@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+// signing key (folder "keystore") – the same key must be used for every update
+def ksFile = rootProject.file('keystore/keystore.properties')
+def ks = new Properties()
+if (ksFile.exists()) { ksFile.withInputStream { ks.load(it) } }
+
+android {
+    namespace 'com.skwala.app'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.skwala.app"
+        minSdk 23
+        targetSdk 36          // Google Play requires Android 16 (API 36) for new apps
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            if (ksFile.exists()) {
+                storeFile rootProject.file('keystore/' + ks['storeFile'])
+                storePassword ks['storePassword']
+                keyAlias ks['keyAlias']
+                keyPassword ks['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig ksFile.exists() ? signingConfigs.release : signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.16.0'
+    implementation 'androidx.work:work-runtime:2.10.2'
+}

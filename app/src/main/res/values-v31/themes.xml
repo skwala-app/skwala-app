@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SKWALA" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/sk_blue</item>
+        <item name="android:colorPrimaryDark">@color/sk_blue</item>
+        <item name="android:colorAccent">@color/sk_orange</item>
+        <item name="android:statusBarColor">@color/sk_blue</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+    </style>
+</resources>
