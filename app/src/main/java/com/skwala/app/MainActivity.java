@@ -503,6 +503,10 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public boolean isApp() { return true; }
 
+        /** true when this copy was installed from Google Play – the page then hides in-app payments (Play Payments policy: consumption-only) */
+        @JavascriptInterface
+        public boolean fromPlay() { return installedFromPlay(); }
+
         /** login / home / exam – controls the bottom menu */
         @JavascriptInterface
         public void setScreen(String s) {
@@ -529,6 +533,18 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void saveFile(String name, String mime, String b64) { handleFile(name, mime, b64, true); }
+    }
+
+    @SuppressWarnings("deprecation")
+    private boolean installedFromPlay() {
+        try {
+            String inst;
+            if (Build.VERSION.SDK_INT >= 30) inst = getPackageManager().getInstallSourceInfo(getPackageName()).getInstallingPackageName();
+            else inst = getPackageManager().getInstallerPackageName(getPackageName());
+            return "com.android.vending".equals(inst) || "com.google.android.feedback".equals(inst);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private void onUser(String sid, String token) {
